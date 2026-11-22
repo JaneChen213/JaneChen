@@ -34,7 +34,6 @@ function adapt(){
  work.classList.toggle('show-video-preview',mobile.matches&&selected==='videos');
  document.querySelector('#featured-work-tab').setAttribute('aria-selected',String(selected==='work'));document.querySelector('#featured-video-tab').setAttribute('aria-selected',String(selected==='videos'));document.querySelector('#featured-work-tab').tabIndex=selected==='work'?0:-1;document.querySelector('#featured-video-tab').tabIndex=selected==='videos'?0:-1;
  document.querySelector('#featured-work-panel').hidden=mobile.matches&&selected!=='work';document.querySelector('#featured-video-panel').hidden=!mobile.matches||selected!=='videos';
- document.querySelector('.about h2').textContent=mobile.matches?({zh:'关于我',ko:'소개',en:'About me'})[language]:content.introTitle;
  const logo=document.querySelector('header .logo');logo.firstChild.textContent=mobile.matches?({zh:'陈茜文 Jane',ko:'제인 Jane',en:'Jane Chen'})[language]:content.name;
  const labels={zh:['简体中文','한국어','English'],ko:['简体中文','한국어','English'],en:['简体中文','한국어','English']}[language];
  [...document.querySelectorAll('[data-lang]')].forEach((b,i)=>{b.textContent=mobile.matches?['中','한','EN'][i]:labels[i];b.setAttribute('aria-label',labels[i]);});
@@ -57,7 +56,7 @@ window.compactPortfolio=(content)=>{
  let videoPanel=document.querySelector('#featured-video-panel');if(!videoPanel){videoPanel=make('div');videoPanel.id='featured-video-panel';videoPanel.setAttribute('role','tabpanel');videoPanel.setAttribute('aria-labelledby','featured-video-tab');work.append(videoPanel);}videoPanel.replaceChildren();
  const preview=make('div',undefined,'mobile-video-grid');for(const card of [...document.querySelectorAll('#video-gallery>.video-card')].slice(0,2))preview.append(card.cloneNode(true));videoPanel.append(preview);const allVideos=()=>{const b=make('button',t.allVideo+' ('+document.querySelectorAll('#video-gallery>.video-card').length+')','collection-entry');b.type='button';b.onclick=()=>showCollection('videos');return b;};videoPanel.append(allVideos());
  document.querySelector('#videos .all-videos')?.remove();const videoEntry=allVideos();videoEntry.classList.add('all-videos');document.querySelector('#video-gallery').after(videoEntry);
- document.querySelector('.profile-entry')?.remove();const profileEntry=make('button',t.more,'collection-entry profile-entry');profileEntry.type='button';profileEntry.onclick=()=>showCollection('bio');document.querySelector('.about-content').append(profileEntry);
+ document.querySelector('.profile-entry')?.remove();
  for(const item of document.querySelectorAll('.impact-source')){const id=item.getAttribute('href')?.slice(1);item.onclick=e=>{e.preventDefault();closeCollection();document.getElementById(id)?.querySelector('.case-trigger')?.click();};}
  // Keep the existing six-video order and all owner-managed content behind the entries.
  document.querySelector('.hero .eyebrow').textContent='MARKETING / CONTENT / COMMUNICATION';
