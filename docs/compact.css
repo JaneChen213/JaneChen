@@ -12,3 +12,12 @@
 
 /* Profile and education stay fully visible on the home page. */
 .about p:nth-of-type(2){display:block}.education{display:block}.about .skills span{display:inline-block}.about h2{font-size:38px}@media(max-width:700px){.about h2{font-size:28px;line-height:1.5;margin:0 0 20px}.about .eyebrow{display:flex;margin-bottom:18px}.about-content{display:block}.about p{font-size:16px;line-height:1.9}.about .skills{gap:7px;margin-top:20px}.about .skills span{font-size:13px;padding:6px 10px}.education-grid{grid-template-columns:1fr;gap:26px;margin-top:18px}.education-grid h3{font-size:18px}#education-content,#qualification-content{font-size:16px;line-height:1.9}}
+
+/* Current work experience and its image-only portfolio sample. */
+.aesthetic-work{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);align-items:start;gap:clamp(24px,5vw,76px);border-top:1px solid #deded8}
+.aesthetic-work-copy .eyebrow{margin:0 0 14px}
+.aesthetic-work h2{font-size:clamp(1.65rem,3vw,2.9rem);line-height:1.2;margin:0 0 18px;overflow-wrap:anywhere}
+.aesthetic-work-copy #aesthetic-work-description{font-size:1rem;line-height:1.8;margin:0;max-width:56ch}
+.aesthetic-featured h3{font-size:1.125rem;margin:0 0 12px}
+.aesthetic-featured img{display:block;width:100%;height:auto;border:1px solid #deded8;border-radius:8px;box-sizing:border-box}
+@media(max-width:700px){.aesthetic-work{grid-template-columns:1fr;gap:24px}}
